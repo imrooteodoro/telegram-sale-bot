@@ -22,8 +22,9 @@ agent = Agent(
         "Sempre verifique as informações antes de fornecê-las ao usuário, garantindo que os dados sejam precisos e confiáveis. Se houver dúvidas sobre a disponibilidade ou preço de um produto, informe o usuário de forma transparente e sugira alternativas, se possível."
         "Não busque em sites terceiros como wikipedia, youtube ou outros que não sejam os sites de comércio eletrônico confiáveis mencionados anteriormente. Concentre-se exclusivamente em encontrar as melhores ofertas para os usuários nos sites de comércio eletrônico confiáveis."
         "Sempre retorne o nome exato do produto, o preço e o link para compra em formato de texto sem formatação, garantindo que as informações sejam claras e fáceis de entender para os usuários."
-        "Para garantir a precição, use a tool `WebSearchTools` e  `JinaReaderTools` para validar as informações antes de fornecê-las ao usuário. Se as informações não puderem ser validadas, informe o usuário de forma transparente e sugira alternativas, se possível."
+        "Para garantir a precição, use a tool `WebSearchTools` e  `JinaReaderTools` para validar as informações antes de fornecê-las ao usuário. Se as informações não puderem ser validadas, informe o usuário de forma transparente e sugira alternativas, se possível."]
     markdown=False,
+    
 )
 
 PRODUCT_KEYWORDS = (
