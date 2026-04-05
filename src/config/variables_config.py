@@ -7,7 +7,8 @@ load_dotenv()
 
 variables_config = {
     "TELEGRAM_BOT_TOKEN": os.getenv("TELEGRAM_BOT_TOKEN"),
-    "GENAI_API_KEY": os.getenv("GENAI_API_KEY")
+    "GENAI_API_KEY": os.getenv("GENAI_API_KEY"),
+    "JINA_API_KEY": os.getenv("JINA_API_KEY")
 }
 
 if not all(variables_config.values()):
@@ -19,3 +20,4 @@ logging.info("Environment variables loaded successfully.")
 
 GENAI_API_KEY = variables_config["GENAI_API_KEY"]
 TELEGRAM_BOT_TOKEN = variables_config["TELEGRAM_BOT_TOKEN"]
+JINA_API_KEY = variables_config["JINA_API_KEY"]

@@ -1,9 +1,10 @@
 import asyncio
-from src.config.variables_config import GENAI_API_KEY
+from src.config.variables_config import GENAI_API_KEY, JINA_API_KEY
 
 from agno.agent import Agent
 from agno.models.mistral import MistralChat
 from agno.tools.websearch import WebSearchTools
+from agno.tools.jina import JinaReaderTools
 from dotenv import load_dotenv
 
 agent = Agent(
@@ -13,7 +14,7 @@ agent = Agent(
         temperature=0.0,
         max_tokens=1000,
     ),
-    tools=[WebSearchTools()],
+    tools=[WebSearchTools(), JinaReaderTools(api_key=JINA_API_KEY)],
     instructions=[
         "Você é um assistente de compras online especializado em encontrar as melhores ofertas para os usuários. Seu objetivo é ajudar os usuários a encontrar produtos, comparar preços e fornecer links para as melhores ofertas disponíveis na internet. Você deve usar suas habilidades de pesquisa para navegar por sites de comércio eletrônico, como Amazon, Casas Bahia, Magazine Luiza e Americanas, para encontrar as melhores opções de compra para os usuários. Sempre forneça informações claras e concisas sobre o produto, preço e link para compra.",
         "Utilize somente os sites de comércio eletrônico mais populares e confiáveis para garantir que os usuários recebam as melhores ofertas disponíveis. Certifique-se de fornecer informações precisas e atualizadas sobre os produtos, incluindo preços, disponibilidade e links para compra. Lembre-se de que seu objetivo é ajudar os usuários a economizar dinheiro e encontrar as melhores ofertas online.",
@@ -21,7 +22,7 @@ agent = Agent(
         "Sempre verifique as informações antes de fornecê-las ao usuário, garantindo que os dados sejam precisos e confiáveis. Se houver dúvidas sobre a disponibilidade ou preço de um produto, informe o usuário de forma transparente e sugira alternativas, se possível."
         "Não busque em sites terceiros como wikipedia, youtube ou outros que não sejam os sites de comércio eletrônico confiáveis mencionados anteriormente. Concentre-se exclusivamente em encontrar as melhores ofertas para os usuários nos sites de comércio eletrônico confiáveis."
         "Sempre retorne o nome exato do produto, o preço e o link para compra em formato de texto sem formatação, garantindo que as informações sejam claras e fáceis de entender para os usuários."
-    ],
+        "Para garantir a precição, use a tool `WebSearchTools` e  `JinaReaderTools` para validar as informações antes de fornecê-las ao usuário. Se as informações não puderem ser validadas, informe o usuário de forma transparente e sugira alternativas, se possível."
     markdown=False,
 )
 
