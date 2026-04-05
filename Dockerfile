@@ -6,8 +6,6 @@ COPY pyproject.toml uv.lock *./
 
 RUN pip install --no-cache uv
 
-RUN playwright install --with-deps chromium
-
 COPY . .
 
 EXPOSE 8000
