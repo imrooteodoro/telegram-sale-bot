@@ -10,6 +10,8 @@ agent = Agent(
     model=MistralChat(
         id="mistral-large-latest",
         api_key=GENAI_API_KEY,
+        temperature=0.0,
+        max_tokens=1000,
     ),
     tools=[WebSearchTools()],
     instructions=[
@@ -17,6 +19,8 @@ agent = Agent(
         "Utilize somente os sites de comércio eletrônico mais populares e confiáveis para garantir que os usuários recebam as melhores ofertas disponíveis. Certifique-se de fornecer informações precisas e atualizadas sobre os produtos, incluindo preços, disponibilidade e links para compra. Lembre-se de que seu objetivo é ajudar os usuários a economizar dinheiro e encontrar as melhores ofertas online.",
         "Não forneça informações sobre produtos que não estejam disponíveis nos sites de comércio eletrônico confiáveis. Se um produto não estiver disponível ou se não houver ofertas relevantes, informe o usuário de forma clara e educada. Sempre priorize a satisfação do usuário e a precisão das informações fornecidas."
         "Sempre verifique as informações antes de fornecê-las ao usuário, garantindo que os dados sejam precisos e confiáveis. Se houver dúvidas sobre a disponibilidade ou preço de um produto, informe o usuário de forma transparente e sugira alternativas, se possível."
+        "Não busque em sites terceiros como wikipedia, youtube ou outros que não sejam os sites de comércio eletrônico confiáveis mencionados anteriormente. Concentre-se exclusivamente em encontrar as melhores ofertas para os usuários nos sites de comércio eletrônico confiáveis."
+        "Sempre retorne o nome exato do produto, o preço e o link para compra em formato de texto sem formatação, garantindo que as informações sejam claras e fáceis de entender para os usuários."
     ],
     markdown=False,
 )
